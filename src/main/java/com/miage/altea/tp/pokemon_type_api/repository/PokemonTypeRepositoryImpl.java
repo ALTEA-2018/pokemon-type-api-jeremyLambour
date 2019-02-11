@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class PokemonTypeRepositoryImpl implements PokemonTypeRepository {
@@ -44,7 +46,7 @@ public class PokemonTypeRepositoryImpl implements PokemonTypeRepository {
 
     @Override
     public List<PokemonType> findAllPokemonType() {
-        return pokemons..stream().sorted(Comparator.comparing(PokemonType::getId)).collect(Collectors.toList());
+        return pokemons.stream().sorted(Comparator.comparing(PokemonType::getId)).collect(Collectors.toList());
     }
 
 }
